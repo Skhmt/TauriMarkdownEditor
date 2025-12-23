@@ -2,14 +2,14 @@
 
 ## Todo:
 
-- [ ] New
+- [x] New
     - [ ] Ask if unsaved
     - [ ] Hotkey
-- [ ] Open
+- [x] Open
     - [ ] Drag and drop open
     - [ ] Hotkey
     - [ ] Resume from opening directly
-- [ ] Save
+- [x] Save
     - [ ] Hotkey
     - [ ] Save-As?
 - [ ] Header minimap
