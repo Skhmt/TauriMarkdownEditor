@@ -30,6 +30,8 @@
   - [ ] Font
   - [ ] Zoom
 - Tauri-specific things
+  - [ ] Fix drag and drop
+  - [ ] Fix title bar not updating
   - [ ] Default app 
   - [ ] Right-click OS-level menu
   - [ ] App and file icons

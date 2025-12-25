@@ -19,7 +19,7 @@
 	let emde: EasyMDE;
 	let isSaved = $state(true);
 	let fileName: string | null = $state(null);
-	let fileHandle: FileSystemFileHandle;
+	let fileHandle: FileSystemFileHandle | null;
 	let isOver = $state(false);
 
 	let showModal = $state(false);
@@ -57,6 +57,7 @@
 		emde!.value("");
 		isSaved = true;
 		fileName = null;
+		fileHandle = null;
 	}
 
 	async function openFile() {
@@ -66,6 +67,8 @@
 
 		// @ts-ignore showOpenFilePicker is available
 		[fileHandle] = await window.showOpenFilePicker();
+
+		if (!fileHandle) return;
 
 		fileName = fileHandle.name;
 
