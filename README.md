@@ -4,22 +4,27 @@
 
 - [x] New
     - [ ] Ask if unsaved
-    - [ ] Hotkey
+    - [x] Hotkey
+		- Can't bind Ctrl+N due to browser behavior to open a new window, but it might work on tauri
 - [x] Open
-    - [ ] Drag and drop open
-    - [ ] Hotkey
-    - [ ] Resume from opening directly
+	- [ ] Ask if unsaved
+    - [x] Drag and drop open
+    - [x] Hotkey
+    - [ ] Resume when opening app directly
+		- Not feasible because of security restrictions
 - [x] Save
-    - [ ] Hotkey
+    - [x] Hotkey
     - [ ] Save-As?
-- [ ] Header minimap
+- [ ] Header outline minimap
 - [ ] Default app 
-- [ ] Right-click menu
+- [ ] Right-click OS-level menu
 - [ ] Tabs
-- [ ] Title bar with file name and * if unsaved
+- [x] Title bar with file name and * if unsaved
 - [ ] Updater
 - [ ] Cloud-sync?
 - [ ] Icons
+- [ ] Dark mode
+- [x] Change to regular (not solid) font awesome
 
 ## Links
 

@@ -9,3 +9,9 @@ body {
 .CodeMirror {
 	height: calc(100vh - 80px) !important;
 }
+
+/* .editor-toolbar button { */
+.easymde-dropdown-content button {
+	font-weight: 100 !important;
+	width: 100%;
+}
