@@ -15,3 +15,71 @@ body {
 	font-weight: 100 !important;
 	width: 100%;
 }
+
+.editor-dark {
+	background-color: #1e1e1e !important;
+	color: #d4d4d4 !important;
+}
+
+/* Container to scope the dark theme */
+.editor-dark .CodeMirror {
+	background-color: #1e1e1e !important;
+	color: #d4d4d4 !important;
+	border-color: #333 !important;
+}
+
+/* Code snippet background */
+.editor-dark .editor-preview-active pre {
+	background-color: black !important;
+}
+
+/* Cursor color */
+.editor-dark .CodeMirror-cursor {
+	border-left: 1px solid #ffffff !important;
+}
+
+/* Toolbar styling */
+.editor-dark .editor-toolbar {
+	background-color: #2d2d2d !important;
+	border-color: #333 !important;
+	opacity: 1 !important;
+}
+
+.editor-dark .disabled-for-preview button:not(.no-disable) {
+	opacity: 0.2 !important;
+}
+
+.editor-dark .editor-toolbar button {
+	color: #d4d4d4 !important;
+}
+
+.editor-dark .editor-toolbar button:hover,
+.editor-dark .editor-toolbar button.active {
+	background-color: #444 !important;
+	border-color: #555 !important;
+}
+
+/* Separator lines in toolbar */
+.editor-dark .editor-toolbar i.separator {
+	border-left: 1px solid #444 !important;
+	border-right: 1px solid #444 !important;
+}
+
+/* Preview pane */
+.editor-dark .editor-preview-active,
+.editor-dark .editor-preview-side {
+	background-color: #1e1e1e !important;
+	color: #d4d4d4 !important;
+}
+
+/* Status bar at the bottom */
+.editor-dark .editor-statusbar {
+	color: #888 !important;
+	background-color: #1e1e1e !important;
+}
+
+/* Line numbers */
+.editor-dark .CodeMirror-gutters {
+	color: #888 !important;
+	background-color: #1e1e1e !important;
+}

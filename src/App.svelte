@@ -37,6 +37,7 @@
 				hljs,
 			},
 			uploadImage: false,
+			spellChecker: false,
 			lineNumbers: true,
 			indentWithTabs: true,
 			tabSize: 4,
@@ -164,7 +165,7 @@
 	ondropcapture={dropHandler}
 />
 
-<div>
+<div class="editor-dark">
 	<textarea id="editor" bind:this={textAreaElement}></textarea>
 
 	{#if isOver}
