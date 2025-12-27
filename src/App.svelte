@@ -5,8 +5,8 @@
 	import createToolbar from "./lib/toolbar.ts";
 	import Modal from "./lib/Modal.svelte";
 
-	// tauri
-	import { getCurrentWindow } from "@tauri-apps/api/window";
+	// @ts-ignore
+	const isTauri = !!(window && window.__TAURI_INTERNALS__);
 
 	// fontawesome
 	import "./css/fontawesome.min.css";
@@ -28,9 +28,6 @@
 	let isOver = $state(false);
 	let windowTitle = $state("");
 
-	// @ts-ignore
-	const appWindow = window["__TAURI__"] ? getCurrentWindow() : null;
-
 	// modal state
 	let showModal = $state(false);
 	let modalContent = $state("lorem ipsum");
@@ -38,15 +35,21 @@
 		alert("modal callback test");
 	});
 
-	function updateTitle() {
+	async function updateTitle() {
 		let title = "";
 		if (fileName) title += fileName;
 		else title += "[untitled]";
 
 		if (!isSaved) title += " *";
 
-		appWindow?.setTitle(title);
 		windowTitle = title;
+
+		if (isTauri) {
+			const { getCurrentWindow } = await import("@tauri-apps/api/window");
+			const appWindow = getCurrentWindow();
+			// Do Tauri-specific things, like appWindow.minimize()
+			appWindow.setTitle(title);
+		}
 	}
 
 	onMount(() => {
@@ -148,8 +151,13 @@
 			} else if (e.key === "o") {
 				e.preventDefault();
 				openFile();
+			} else {
+				isSaved = false;
 			}
+		} else {
+			isSaved = false;
 		}
+		updateTitle();
 	}
 
 	function dragOverHandler(e: DragEvent) {

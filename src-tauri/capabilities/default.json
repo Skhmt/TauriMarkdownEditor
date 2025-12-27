@@ -9,6 +9,7 @@
     "core:default",
     "core:tray:default",
     "core:window:allow-title",
-    "core:window:default"
+    "core:window:default",
+    "core:window:allow-set-title"
   ]
 }
