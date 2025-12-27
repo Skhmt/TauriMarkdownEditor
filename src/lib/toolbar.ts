@@ -1,6 +1,6 @@
 import EasyMDE from "easymde";
 
-const faWeight = 'fal'; // far for regular, fas for solid, fal for light,
+const faWeight = 'fal'; // far for regular, fal for light, or fas for solid (removed from files)
 
 export default function createToolbar(newFn: () => void, openFn: () => void, saveFn: () => void): any[] {
 	return [
