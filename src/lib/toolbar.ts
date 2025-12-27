@@ -1,41 +1,9 @@
 import EasyMDE from "easymde";
 
-const faWeight = 'fal'; // far for regular, fas for solid, fal for light
+const faWeight = 'fal'; // far for regular, fas for solid, fal for light,
 
 export default function createToolbar(newFn: () => void, openFn: () => void, saveFn: () => void): any[] {
 	return [
-		// {
-		// 	name: "File",
-		// 	className: `${faWeight} fa-bars no-disable`,
-		// 	title: "File",
-		// 	noDisable: true,
-		// 	children: [
-		// 		{
-		// 			name: "New",
-		// 			action: newFn,
-		// 			// className: `${faWeight} fa-file-plus`,
-		// 			title: "Create a new file",
-		// 			noDisable: true,
-		// 			text: "New",
-		// 		},
-		// 		{
-		// 			name: "Open",
-		// 			action: openFn,
-		// 			// className: `${faWeight} fa-folder-open`,
-		// 			title: "Open a file on your device",
-		// 			noDisable: true,
-		// 			text: "Open",
-		// 		},
-		// 		{
-		// 			name: "Save",
-		// 			action: saveFn,
-		// 			// className: `${faWeight} fa-save`,
-		// 			title: "Save the current file",
-		// 			noDisable: true,
-		// 			text: "Save",
-		// 		},
-		// 	],
-		// },
 		{
 			name: "New",
 			action: newFn,

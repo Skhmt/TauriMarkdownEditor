@@ -29,7 +29,7 @@
 	let windowTitle = $state("");
 
 	// @ts-ignore
-	const appWindow = getCurrentWindow ? getCurrentWindow() : null;
+	const appWindow = window["__TAURI__"] ? getCurrentWindow() : null;
 
 	// modal state
 	let showModal = $state(false);
@@ -48,9 +48,10 @@
 		appWindow?.setTitle(title);
 		windowTitle = title;
 	}
-	updateTitle();
 
 	onMount(() => {
+		updateTitle();
+
 		emde = new EasyMDE({
 			element: textAreaElement,
 			autoDownloadFontAwesome: false,
@@ -177,6 +178,7 @@
 			fileName = file.name;
 			emde!.value(text);
 			isSaved = true;
+			updateTitle();
 		}
 	}
 </script>
