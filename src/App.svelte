@@ -1,7 +1,12 @@
 <script lang="ts">
 	import { onMount } from "svelte";
+
+	// bespoke modules
 	import createToolbar from "./lib/toolbar.ts";
 	import Modal from "./lib/Modal.svelte";
+
+	// tauri
+	import { getCurrentWindow } from "@tauri-apps/api/window";
 
 	// fontawesome
 	import "./css/fontawesome.min.css";
@@ -21,12 +26,29 @@
 	let fileName: string | null = $state(null);
 	let fileHandle: FileSystemFileHandle | null;
 	let isOver = $state(false);
+	let windowTitle = $state("");
 
+	// @ts-ignore
+	const appWindow = getCurrentWindow ? getCurrentWindow() : null;
+
+	// modal state
 	let showModal = $state(false);
 	let modalContent = $state("lorem ipsum");
 	let modalCallback = $state(() => {
 		alert("modal callback test");
 	});
+
+	function updateTitle() {
+		let title = "";
+		if (fileName) title += fileName;
+		else title += "[untitled]";
+
+		if (!isSaved) title += " *";
+
+		appWindow?.setTitle(title);
+		windowTitle = title;
+	}
+	updateTitle();
 
 	onMount(() => {
 		emde = new EasyMDE({
@@ -58,6 +80,7 @@
 		isSaved = true;
 		fileName = null;
 		fileHandle = null;
+		updateTitle();
 	}
 
 	async function openFile() {
@@ -76,6 +99,7 @@
 		const content = await file.text();
 		emde!.value(content);
 		isSaved = true;
+		updateTitle();
 	}
 
 	async function saveFile() {
@@ -86,6 +110,7 @@
 		await writable.close();
 
 		isSaved = true;
+		updateTitle();
 	}
 
 	async function getSaveFileHandle() {
@@ -157,7 +182,7 @@
 </script>
 
 <svelte:head>
-	<title>{fileName ?? "[Untitled]"} {isSaved ? "" : "*"}</title>
+	<title>{windowTitle}</title>
 	<link rel="icon" href="./src/mdp-512.png" />
 </svelte:head>
 

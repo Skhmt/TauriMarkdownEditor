@@ -6,6 +6,9 @@
     "main"
   ],
   "permissions": [
-    "core:default"
+    "core:default",
+    "core:tray:default",
+    "core:window:allow-title",
+    "core:window:default"
   ]
 }
