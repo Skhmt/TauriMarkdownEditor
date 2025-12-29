@@ -208,7 +208,7 @@
 
 	{#if isOver}
 		<div class="drop-overlay">
-			<i class="fa fa-file-import fa-5x dropicon" aria-hidden="true"></i>
+			<i class="fal fa-file-import fa-5x dropicon" aria-hidden="true"></i>
 		</div>
 	{/if}
 
